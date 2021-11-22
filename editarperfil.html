@@ -74,6 +74,7 @@
                         <div id="formContent">
                         <form>
 							<input type="text" id="nome" class="fadeIn second" name="perfil" value="Fulano de Tal"/> 
+							<input type="text" id="user" class="fadeIn second" name="perfil" value="usuariodofulaninho"/> 
                             <input type="text" id="email" class="fadeIn third" name="perfil" value="fulaninho123@gmail.com"/>
 							<input type="text" id="perfil" class="fadeIn third" name="perfil" value="111.111.111-11" disabled/>
 							<input type="text" id="endereco" class="fadeIn third" name="perfil" value="Rua do Fulano, 24, Fortaleza, Ceará"/>
@@ -111,6 +112,7 @@
 
 		function validar() {
 			  var nome = document.getElementById("nome");
+			  var user = document.getElementById("user");
 			  var senha = document.getElementById("senha");
 			  var email = document.getElementById("email");
 			  var endereco = document.getElementById("endereco");
@@ -119,7 +121,12 @@
 
 				  if(nome.value == ""){
 							alert('Preencha o campo Nome.');
-							formlogin.login.focus();
+							formlogin.nome.focus();
+							return false;
+							}
+							if(user.value == ""){
+							alert('Preencha o campo Nome.');
+							formlogin.user.focus();
 							return false;
 							}
 			

@@ -73,7 +73,7 @@
                     <div class="wrapper fadeInDown">
                         <div id="formContent">
                         <form name="formlogin">
-                            <input type="text" id="login" class="fadeIn second" name="login" placeholder="email"/>
+                            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário"/>
                             <input type="text" id="password" class="fadeIn third" name="login" placeholder="senha"/> 
                             <input type='button' class="fadeIn fourth" value="Login" onclick="validar()">
                           </form>
@@ -101,17 +101,11 @@ function validar() {
   var senha = document.getElementById("password");
 
   	if(login.value == ""){
-                alert('Preencha o campo E-mail.');
+                alert('Preencha o campo usuário');
                 formlogin.login.focus();
                 return false;
                 }
 
-	if(login.value.indexOf('.') == -1 && login.value.indexOf('@') == -1 ){
-		alert('Preencha o campo E-mail com um email válido');
-        formlogin.login.focus();
-        return false;
-
-	}
 
   	if (senha.value == "") {
     	alert("Senha não informada");
