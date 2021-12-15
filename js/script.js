@@ -9,8 +9,9 @@ var shoppingCart = (function() {
 	  //sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
 		for(var item in cart){
 			document.cookie = `${cart[item].name}=` + cart[item].name +','+ cart[item].price + ',' + cart[item].count;
-			//console.log(document.cookie)
+			console.log(document.cookie)
 		}
+		console.log(cart)
 	}
 
 	function loadCart() {
@@ -21,12 +22,11 @@ var shoppingCart = (function() {
 		  let ondeCortar = cookieArray[i].indexOf('=')+1;
 			let itemValueArray = cookieArray[i].slice(ondeCortar);
 			itemValueArray = itemValueArray.split(',');
-			let indItem = {
-				name: itemValueArray[0],
+			cart.push(
+				{name: itemValueArray[0],
 				price: itemValueArray[1],
-				count: itemValueArray[2]
-			}
-			cart.push(indItem)
+				count: itemValueArray[2]}
+				)
 			//console.log(indItem)
 		}
 	}
@@ -39,7 +39,7 @@ var shoppingCart = (function() {
 
 	var obj = {};
 	obj.addItemToCart = function(name, price, count) {
-	  for(var item in cart) {
+		for(var item in cart) {
 			if(cart[item].name === name) {
 				cart[item].count ++;
 				saveCart();
@@ -109,6 +109,7 @@ var shoppingCart = (function() {
 	  cart = [];
 		let cookieArray = document.cookie.split(';')
 		for(let i = 0; i< cookieArray.length; i++){
+			let ondeCortar = cookieArray[i].indexOf('=')+1;
 			let nomeCookie = cookieArray[i].slice(0, ondeCortar);
 			document.cookie = `${nomeCookie}; expires=Thu, 01 Jan 1970 00:00:00 UTC;`
 		}
