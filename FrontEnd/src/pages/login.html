@@ -95,7 +95,7 @@
 <script src="../js/menujs.js"></script>
 
 <script>
-	function validar() {
+	async function validar(){
 		var email = document.getElementById("email");
 		var senha = document.getElementById("password");
 
@@ -105,11 +105,10 @@
 			return false;
 		}
 
-		if (login.value.indexOf('.') == -1 && login.value.indexOf('@') == -1) {
+		if (email.value.indexOf('.') == -1 && email.value.indexOf('@') == -1) {
 			alert('Preencha o campo E-mail com um email válido');
-			formlogin.login.focus();
+			formlogin.email.focus();
 			return false;
-
 		}
 
 		if (senha.value == "") {
@@ -124,8 +123,8 @@
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				email,
-				password: senha
+				email: email.value,
+				password: senha.value
 			})
 		}).then((res) => res.json())
 
@@ -134,9 +133,9 @@
 			//salvando o token
 			sessionStorage.setItem('token', result.data);
 			alert('Usuário logado!');
+			location.href = 'http://localhost:5500/pages/compras.html'
 		} else {
 			alert("Ocorreu um erro!")
 		}
-		window.location.href = "compras.html";
 	}
 </script>
