@@ -102,7 +102,7 @@
 <script src="../js/menujs.js"></script>
 
 <script>
-	function validar() {
+	async function validar() {
 		var nome = document.getElementById("nome");
 		var login = document.getElementById("login");
 		var senha = document.getElementById("senha");
@@ -168,11 +168,9 @@
 
 		if(result.status == 201){
 			alert("Cadastro realizado com sucesso. Código: " + result.status);
+			window.location.href = "compras.html";
 		}else{
-			alert('Erro: '+result.error)
+			console.log(result)
 		}
-
-		window.location.href = "compras.html";
-
 	}
 </script>
