@@ -165,8 +165,8 @@
         	})
 		}).then((res) => res.json())
 
-		if(result.status == 201){
-			alert("Cadastro realizado com sucesso. Código: " + result.status);
+		if(result.msg){
+			alert("Cadastro realizado com sucesso");
 			location.href = 'http://localhost:5500/pages/login.html'
 		}else{
 			console.log(result)
