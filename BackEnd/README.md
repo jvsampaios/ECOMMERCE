@@ -10,7 +10,7 @@ Projeto desenvolvido visando aplicar conceitos de banco de dados com Node.
   <img  src="https://github.com/Spinnafre/myCommerce/blob/main/showcase/game.gif" alt="gif do app" width=60% height=60%>
 </h1>
 
-Video explicando o projeto: https://www.youtube.com/watch?v=No81WSipttU
+Video explicando o projeto: 
 
 ## **:computer: TECNOLOGIAS**
 
