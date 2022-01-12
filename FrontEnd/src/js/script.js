@@ -19,14 +19,14 @@ var shoppingCart = (function() {
 		//cart = JSON.parse(document.cookie);
 		let cookieArray = document.cookie.split(';')
 		for(let i = 0; i< cookieArray.length; i++){
-		  let ondeCortar = cookieArray[i].indexOf('=')+1;
+		  	let ondeCortar = cookieArray[i].indexOf('=')+1;
 			let itemValueArray = cookieArray[i].slice(ondeCortar);
 			itemValueArray = itemValueArray.split(',');
-			cart.push(
-				{name: itemValueArray[0],
+			cart.push({
+				name: itemValueArray[0],
 				price: itemValueArray[1],
-				count: itemValueArray[2]}
-				)
+				count: itemValueArray[2]
+				})
 			//console.log(indItem)
 		}
 	}
