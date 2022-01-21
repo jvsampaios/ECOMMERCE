@@ -22,8 +22,10 @@ export class ProductRepository implements IProductRepository {
         if (!id) {
             if (category_id && category_id.length) {
                 const categoryRepository = new CategoryRepository()
+                console.log('CADASTRANDO UM NOVO PRODUTO ',category_id)
                 category_id.forEach(async c => {
                     let category = await categoryRepository.findById(c)
+                    console.log('CATEGORY -> ',category)
                     console.log({ products: product, categories: category })
                     await productCategoryRepository.create({ products: product, categories: category })
                 })
@@ -68,7 +70,6 @@ export class ProductRepository implements IProductRepository {
         const productCategoryRepository=new ProductCategoryRepository()
 
         const products = await productCategoryRepository.show()
-        console.log(products)
         return products
     }
     async findOneProduct(id: string): Promise<IProduct> {
